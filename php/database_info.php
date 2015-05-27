@@ -8,10 +8,21 @@ $DB_PASSWD = "es105es105" ;
 $DB_HOST = "mysql1.000webhost.com" ;
 */
 
+
+//峰民的localhost
+/*
+$DB_NAME = "mylittlepony" ;
+$DB_USER = "es105" ;
+$DB_PASSWD = "es105" ;
+$DB_HOST = "127.0.0.1" ;
+*/
+
+//家榮的localhost
 $DB_NAME = "mylittlepony" ;
 $DB_USER = "bigpony" ;
 $DB_PASSWD = "pigpigpig" ;
 $DB_HOST = "localhost" ;
+
 
 /*
 $DB_NAME = "mylittlepony" ;

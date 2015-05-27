@@ -133,7 +133,7 @@ ddsmoothmenu.init({
 		
 			&nbsp
 			<a href="discuss/discuss.php"><img src="images/discuss.jpg" alt="discuss!"width='350'height='600' />
-            <a href="pass_analysis/hello.html"><img src="images/analysis.jpg" alt="analysis!" width='350'height='600' />
+                            <a href="pass_analysis/catch.php"><img src="images/analysis.jpg" alt="analysis!" width='350'height='600' />
 
 		
 		<div class="cleaner"></div>
