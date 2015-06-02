@@ -1,0 +1,430 @@
+<html><head>
+<title>成大數位學習平台-統計資料</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="css/css-table.css" />
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/style-table.js"></script>
+<script type="text/javascript" src="js/canvasjs.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+	  
+/*
+	var dataPoints = [];
+	$.getJSON("get_chartdata_all.php?sem=1031", function (result) {
+
+		for(var i = 0; i <= result.length-1; i++) {
+			alert("label="+result[i].label);
+			dataPoints.push({label: result[i].label, y: parseInt(result[i].y)});
+		}
+		var chart = new CanvasJS.Chart("chartContainer_all", {
+		data: [
+		{
+			dataPoints: dataPoints
+		}
+		]
+
+	});
+*/
+	$.getJSON("get_chartdata_semester.php?sem=1031", function (result) {	
+		var chart = new CanvasJS.Chart("chartContainer_all", {
+			title:{
+				fontFamily: "Microsoft JhengHei",
+				fontSize: 30,
+				text: "全校課程 建置 教材/活動比例"
+			},
+			width: 550,
+			theme: "theme1",
+			axisX: {
+      				labelFontFamily: "Microsoft JhengHei",
+	      			labelMaxWidth: 80,
+      				labelWrap: true
+            		},
+			axisY: {
+      				//gridColor: "white",
+	      			maximum: 100
+			},
+			toolTip:{
+				content: function(e){
+		          var content;
+		          content = e.entries[0].dataPoint.label + " <strong>"+e.entries[0].dataPoint.y+"%" ;
+		          return content;
+		        }
+			},
+			data: [
+				{
+				
+					indexLabel: "{y}%",
+					showInLegend: false,
+					dataPoints: result
+				}
+			]
+		});
+		chart.render();
+	});
+
+	$.getJSON("get_chartdata_college_visible.php?sem=1031", function (result) {
+	
+		var chart = new CanvasJS.Chart("chartContainer_dep_visible", {
+			title:{
+				fontFamily: "Microsoft JhengHei",
+				fontSize: 25,
+				text: "各學院課程 啟用率"
+			},			
+			theme: "theme1",
+			axisX: {
+  				labelFontFamily: "Microsoft JhengHei",
+				labelMaxWidth: 50,
+				labelFontSize: 16,
+				//labelAngle: -30,
+  				labelWrap: true
+				//labelAutoFit: true
+				//interval: 10
+	        		},
+			axisY: {
+  				//gridColor: "white",
+				maximum: 100
+			},
+			toolTip:{
+				content: function(e){
+		          var content;
+		          content = e.entries[0].dataPoint.label + " <strong>"+e.entries[0].dataPoint.y+"%" ;
+		          return content;
+		        }
+			},
+			data: [
+				{
+					indexLabel: "{y}%",
+					indexLabelFontSize: 14,
+					showInLegend: false,
+					dataPoints: result
+				}//end of data
+			]
+		});
+    	chart.render();
+	});
+
+	var dataPoints1 = [];
+	var dataPoints2 = [];
+	var dataPoints3 = [];
+	var dataPoints4 = [];
+	var dataPoints5 = [];	
+/*	
+	$.getJSON("get_chartdata_dep_material.php?sem=1031", function (result) {
+
+		for(var i = 0; i <= result.length-1; i++) {
+			//alert("label="+result[i].label);
+			dataPoints1.push({label: result[i].label, y: parseInt(result[i].file)});
+			dataPoints2.push({label: result[i].label, y: parseInt(result[i].resource)});
+			dataPoints3.push({label: result[i].label, y: parseInt(result[i].assign)});
+			dataPoints4.push({label: result[i].label, y: parseInt(result[i].quiz)});
+			dataPoints5.push({label: result[i].label, y: parseInt(result[i].forum)});
+		}		
+		var chart = new CanvasJS.Chart("chartContainer_dep_material", {
+			title:{
+				fontFamily: "Microsoft JhengHei",
+				fontSize: 25,
+				text: "各學院課程 建置教材/活動比例"
+			},			
+			theme: "theme1",
+			axisX: {
+				labelFontFamily: "Microsoft JhengHei",
+				labelMaxWidth: 50,
+				labelFontSize: 16,				
+				labelWrap: true
+			},
+			axisY: {			
+				maximum: 100
+			},
+			data: [
+					{
+						//type:"spline",
+						type:"line",
+						//indexLabel: "{y}%",
+						//indexLabelFontSize: 14,
+						showInLegend: true,			
+						legendText: "檔案",										
+						dataPoints: dataPoints1
+					},
+					{
+						//type:"spline",
+						type:"line",					
+						//indexLabel: "{y}%",
+						//indexLabelFontSize: 14,
+						showInLegend: true,					
+						legendText: "線上資源",	
+						dataPoints: dataPoints2
+					},
+					{
+						//type:"spline",
+						type:"line",					
+						//indexLabel: "{y}%",
+						//indexLabelFontSize: 14,
+						showInLegend: true,					
+						legendText: "作業",	
+						dataPoints: dataPoints3
+					},
+					{
+						//type:"spline",
+						type:"line",					
+						//indexLabel: "{y}%",
+						//indexLabelFontSize: 14,
+						showInLegend: true,					
+						legendText: "測驗卷",	
+						dataPoints: dataPoints4
+					},
+					{
+						//type:"spline",
+						type:"line",					
+						//indexLabel: "{y}%",
+						//indexLabelFontSize: 14,
+						showInLegend: true,					
+						legendText: "討論區",	
+						dataPoints: dataPoints5
+					}
+				]
+		});
+    	chart.render();
+	});
+*/
+	$.getJSON("get_chartdata_college_material.php?sem=1031", function (result) {
+
+		for(var i = 0; i <= result.length-1; i++) {
+			//alert("label="+result[i].label);
+			dataPoints1.push({label: result[i].label, y: parseInt(result[i].file)});
+			dataPoints2.push({label: result[i].label, y: parseInt(result[i].resource)});
+			dataPoints3.push({label: result[i].label, y: parseInt(result[i].assign)});			
+			dataPoints4.push({label: result[i].label, y: parseInt(result[i].forum)});
+			dataPoints5.push({label: result[i].label, y: parseInt(result[i].quiz)});
+		}		
+		var chart = new CanvasJS.Chart("chartContainer_dep_material2", {
+			title:{
+				fontFamily: "Microsoft JhengHei",
+				fontSize: 25,
+				text: "各學院課程 建置教材/活動比例"
+			},			
+			theme: "theme1",
+			axisX: {
+				labelFontFamily: "Microsoft JhengHei",
+				labelMaxWidth: 50,
+				labelFontSize: 16,				
+				labelWrap: true
+			},
+			axisY: {			
+				maximum: 100
+			},
+			toolTip:{
+				content: function(e){
+		          var content;
+		          content = e.entries[0].dataSeries.name + " <strong>"+e.entries[0].dataPoint.y+"%" ;
+		          return content;
+		        }
+			},
+			data: [
+					{
+						type:"column",
+						//indexLabel: "{y}%",
+						//indexLabelFontSize: 14,
+						showInLegend: true,			
+						legendText: "檔案",
+						name: "檔案",					        								
+						dataPoints: dataPoints1
+					},
+					{
+						type:"column",					
+						//indexLabel: "{y}%",
+						//indexLabelFontSize: 14,
+						showInLegend: true,					
+						legendText: "線上資源",	
+						name: "線上資源",
+						dataPoints: dataPoints2
+					},
+					{
+						type:"column",					
+						//indexLabel: "{y}%",
+						//indexLabelFontSize: 14,
+						showInLegend: true,					
+						legendText: "作業",	
+						name: "作業",
+						dataPoints: dataPoints3
+					},
+					{
+						type:"column",					
+						//indexLabel: "{y}%",
+						//indexLabelFontSize: 14,
+						showInLegend: true,					
+						legendText: "討論區",	
+						name: "討論區",
+						dataPoints: dataPoints4
+					},
+					{
+						type:"column",					
+						//indexLabel: "{y}%",
+						//indexLabelFontSize: 14,
+						showInLegend: true,					
+						legendText: "測驗卷",	
+						name: "測驗卷",
+						dataPoints: dataPoints5
+					}					
+				]
+		});
+    	chart.render();
+	});
+
+
+	
+}); //end of $(document).ready(function () {
+
+</script>
+</head>
+
+
+<body>
+<!-- 
+        <form action="view_statistic_public.php" method="GET">
+        選擇要檢視的學期
+        <select name="sem">
+        <option value=1031>1031
+        <option value=1032 selected>1032
+        </select>
+        <input type=submit value="確定">
+
+        </form>
+ -->        
+<div id="container">
+<div id="header">成大數位學習平台 103學年度 第1學期  線上教材統計</div>
+<table cellpadding="0" cellspacing="0" border="0">
+<thead> 
+ <tr><th colspan="4"><img src=BG.jpg /></th></tr>
+	<tr>
+    <th class="tableheader" colspan="4">全校統計</th>
+	</tr>
+	<tr>
+    <th>&nbsp;</th>
+    <th>總數</th>
+    <th>啟用數</th>
+    <th>啟用率</th>
+    <!-- 
+    <th>公開數</th>
+    <th>公開率</th>
+     -->
+	</tr>
+	<tr>
+    <th>學期課程</th>
+    <td>3719</td>
+    <td>1798</td>
+    <td>48.35%</td>
+    <!-- 
+    <td></td>
+    <td></td>
+     -->
+	</tr>
+</thead>
+	
+<tbody>
+	<tr>
+    <th>&nbsp;</th>
+    <th colspan="2">課程數</th>
+    <th>建置比例</th>
+	</tr>
+	<tr>
+    <th>建置檔案教材</th>
+    <td colspan="2">1336</td>
+    <td>74.3%</td>
+  </tr>
+  <tr>
+    <th>建置線上資源</th>
+    <td colspan="2">1376</td>
+    <td>76.53%</td>
+  </tr>
+  <tr>
+    <th>建置作業</th>
+    <td colspan="2">824</td>
+    <td>45.83%</td>
+  </tr>  
+  <tr>
+    <th>建置討論區</th>
+    <td colspan="2">262</td>
+    <td>14.57%</td>
+  </tr>
+	<tr>
+    <th>建置測驗</th>
+    <td colspan="2">11</td>
+    <td>0.61%</td>
+  </tr>
+  </tbody>
+</table>
+
+  <div id="chartContainer_all" class="chartcenter"></div>
+  
+<!-- 系所統計 -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<thead> 	
+   <tr>
+    <th class="tableheader" colspan="14">學院/系所統計</td>
+  </tr>
+  <tr>
+    <th rowspan="2">學院</th>
+    <th rowspan="2">課程總數</th>
+    <th rowspan="2">啟用課程數</th>
+    <th rowspan="2">啟用比例</th>
+    <!-- <th rowspan="2">公開</th> -->
+    <th colspan="2">檔案教材</th>
+    <th colspan="2">線上資源</th>
+    <th colspan="2">作業</th>
+    <th colspan="2">討論區</th>
+    <th colspan="2">測驗</th>
+  </tr>
+  <tr>
+    <th>課程數</td>
+    <th>比例</td>
+    <th>課程數</td>
+    <th>比例</td>
+    <th>課程數</th>
+    <th>比例</th>
+	<th>課程數</th>
+    <th>比例</th>
+    <th>課程數</th>
+    <th>比例</th>
+  </tr>
+</thead>
+	
+<tbody>	
+<tr><th><a href=dept.php?sem=1031&cat=1544>文學院</a></th><td>268</td><td>151</td><td>56.34%</td><td>104</td><td>68.87%</td><td>110</td><td>72.85%</td><td>79</td><td>52.32%</td><td>43</td><td>28.48%</td><td>2</td><td>1.32%</td></tr><tr><th><a href=dept.php?sem=1031&cat=1580>理學院</a></th><td>252</td><td>105</td><td>41.67%</td><td>78</td><td>74.29%</td><td>73</td><td>69.52%</td><td>22</td><td>20.95%</td><td>11</td><td>10.48%</td><td>0</td><td>0%</td></tr><tr><th><a href=dept.php?sem=1031&cat=1542>電機資訊學院</a></th><td>308</td><td>148</td><td>48.05%</td><td>96</td><td>64.86%</td><td>101</td><td>68.24%</td><td>90</td><td>60.81%</td><td>13</td><td>8.78%</td><td>3</td><td>2.03%</td></tr><tr><th><a href=dept.php?sem=1031&cat=1550>規劃設計學院</a></th><td>200</td><td>124</td><td>62%</td><td>93</td><td>75%</td><td>94</td><td>75.81%</td><td>84</td><td>67.74%</td><td>20</td><td>16.13%</td><td>0</td><td>0%</td></tr><tr><th><a href=dept.php?sem=1031&cat=1567>管理學院</a></th><td>324</td><td>160</td><td>49.38%</td><td>118</td><td>73.75%</td><td>115</td><td>71.88%</td><td>89</td><td>55.63%</td><td>10</td><td>6.25%</td><td>0</td><td>0%</td></tr><tr><th><a href=dept.php?sem=1031&cat=1573>醫學院</a></th><td>535</td><td>173</td><td>32.34%</td><td>172</td><td>99.42%</td><td>169</td><td>97.69%</td><td>92</td><td>53.18%</td><td>44</td><td>25.43%</td><td>1</td><td>0.58%</td></tr><tr><th><a href=dept.php?sem=1031&cat=1540>工學院</a></th><td>901</td><td>392</td><td>43.51%</td><td>302</td><td>77.04%</td><td>305</td><td>77.81%</td><td>150</td><td>38.27%</td><td>37</td><td>9.44%</td><td>2</td><td>0.51%</td></tr><tr><th><a href=dept.php?sem=1031&cat=1533>生科學院</a></th><td>111</td><td>46</td><td>41.44%</td><td>33</td><td>71.74%</td><td>34</td><td>73.91%</td><td>10</td><td>21.74%</td><td>5</td><td>10.87%</td><td>0</td><td>0%</td></tr><tr><th><a href=dept.php?sem=1031&cat=1535>社會科學院</a></th><td>219</td><td>130</td><td>59.36%</td><td>95</td><td>73.08%</td><td>99</td><td>76.15%</td><td>47</td><td>36.15%</td><td>19</td><td>14.62%</td><td>0</td><td>0%</td></tr><tr><th><a href=dept.php?sem=1031&cat=1529>通識課程</a></th><td>398</td><td>283</td><td>71.11%</td><td>198</td><td>69.96%</td><td>227</td><td>80.21%</td><td>126</td><td>44.52%</td><td>47</td><td>16.61%</td><td>3</td><td>1.06%</td></tr><tr><th><a href=dept.php?sem=1031&cat=1531>其他單位</a></th><td>201</td><td>85</td><td>42.29%</td><td>47</td><td>55.29%</td><td>49</td><td>57.65%</td><td>35</td><td>41.18%</td><td>13</td><td>15.29%</td><td>0</td><td>0%</td></tr><tr><th><a href=dept.php?sem=1031&cat=1564>不分學院</a></th><td>2</td><td>1</td><td>50%</td><td>0</td><td>0%</td><td>0</td><td>0%</td><td>0</td><td>0%</td><td>0</td><td>0%</td><td>0</td><td>0%</td></tr></tbody>
+  <tfoot>
+  <tr><td>總和</td>
+    <td>3719</td><!-- 課程總數-->
+    <td>1798</td><!-- 啟用課程數 -->
+    <td>48.35%</td><!-- 啟用比例 -->
+    <!-- <td></td> --> <!-- 公開 -->
+    <td>1336</td><!-- 建置檔案教材:課程數 -->
+    <td>74.3%</td><!-- 建置比例 -->
+    <td>1376</td><!-- 建置線上資源:課程數 -->
+    <td>76.53%</td><!-- 建置比例 -->
+    <td>824</td><!-- 建置作業:課程數 -->
+    <td>45.83%</td><!-- 建置比例 -->
+    <td>11</td><!-- 建置測驗:課程數 -->
+	<td>0.61%</td><!-- 建置比例 -->
+    <td>262</td><!-- 建置討論區:課程數 -->
+    <td>14.57%</td> <!-- 建置比例 -->
+    </tr>
+  </tfoot>
+
+</table>
+
+
+<div id="chartContainer_dep_visible" class="chartdep"></div>
+<br />
+<!-- 
+<div id="chartContainer_dep_material" class="chartdep"></div>
+<br />
+ -->
+<div id="chartContainer_dep_material2" class="chartdep"></div>
+
+</div> <!-- container -->
+
+<div id="footer">
+<img src="footer.jpg" />
+</div>
+
+</body>
+</html>
