@@ -261,9 +261,9 @@ function no()
 		if($_POST['author']==NULL||$tex=$_POST['text']==NULL)
 		{
 			if($_POST['author']==NULL)
-			echo "<h2>您的Name尚末填寫哦!!<br></h2>";
+			echo "<h2>您的標題尚末填寫哦!!<br></h2>";
 			if($tex=$_POST['text']==NULL)
-			echo "<h2>您沒有填入Message喲!!<br></h2>";
+			echo "<h2>您沒有填入內容喲!!<br></h2>";
 		}
 		else
 		{

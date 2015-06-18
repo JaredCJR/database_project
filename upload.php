@@ -2,6 +2,7 @@
 
 <?php
 include ("php/account.php") ;
+
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -39,6 +40,7 @@ ddsmoothmenu.init({
 
 function file_info_comfirm()
 {
+       
 	//alert(document.all.file_info.schoolname.value) ;
 	//alert((document.getElementById("schoolname")).value) ;
 	var msg="\n系统提示 : \n\n";
@@ -121,7 +123,7 @@ function file_info_comfirm()
 	<div id="templatemo_menubar">
 		<div id="top_nav" class="ddsmoothmenu">
 			<ul>
-				<li><a href="index.php">首頁</a></li>
+				<li><a href="open_course/course.php">開放式課程</a></li>
 				<li><a href="products.php">下載考古題</a></li>
 				<li><a href="upload.php" class="selected">上傳檔案</a></li>
 				<li><a href="account_info.php">會員資料</a></li>
@@ -172,6 +174,7 @@ function file_info_comfirm()
 		<div id="content" class="float_r">
 			<h1>檔案上傳</h1>
 			<?php 
+                        
 				if (isset($_SESSION["ID"])) {
 					echo "<h5><strong>請選擇上傳檔案的詳細資訊</strong></h5>
 						<form name='file_info' action='file_upload.php' method='POST' enctype='multipart/form-data' onsubmit='return file_info_comfirm();'>

@@ -114,7 +114,7 @@ function account_info_comfirm()
 	<div id="templatemo_menubar">
 		<div id="top_nav" class="ddsmoothmenu">
 			<ul>
-				<li><a href="index.php">首頁</a></li>
+				<li><a href="open_course/course.php">開放式課程</a></li>
 				<li><a href="products.php">下載考古題</a></li>
 				<li><a href="upload.php">上傳檔案</a></li>
 				<li><a href="account_info.php" class="selected">會員資料</a></li>
@@ -213,6 +213,26 @@ function account_info_comfirm()
 						."<h5>♧學號</h5><p>&nbsp;&nbsp;<font color='blue'>".$result['IdNumber']."</font></p>" ;
 					echo "<BR><BR>" ;
 					//echo "</div>" ;
+                                        
+                                        echo "<h1>大一</h1>";
+                                        echo "<h3>普通物理學    普通物理學實驗   工程力學   計算機概論    材料科學   微積分（一）</h3>";
+                                        echo "<h3>近代物理    微積分（二）   工程動力學   程式設計</h3>";
+                                        echo "<br/><br/>";
+                                        
+                                        
+                                        echo "<h1>大二</h1>";
+                                        echo "<h3>資料結構   電路學   材料力學（一）   工程數學（一）  工程圖學與模擬   熱力學</h3>";
+                                        echo "<h3>工程數學（二）   電子學   邏輯設計   電子學實驗</h3>";
+                                        echo "<br/><br/>";
+                                        
+                                        echo "<h1>大三</h1>";
+                                        echo "<h3>流體力學   計算機組織與組合語言   自動控制</h3>";
+                                        echo "<h3>數值方法   熱傳學</h3>";
+                                        echo "<br/><br/>";
+                                        
+                                        echo "<h1>大四</h1>";
+                                        
+                                        
 					echo "<BR><BR><BR><BR>" ;
 					if (isset($changeResult)) {
 						if ($changeResult==1) {

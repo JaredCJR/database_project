@@ -124,7 +124,7 @@ function account_info_comfirm()
 	<div id="templatemo_menubar">
 		<div id="top_nav" class="ddsmoothmenu">
 			<ul>
-				<li><a href="index.php">首頁</a></li>
+				<li><a href="open_course/course.php">開放式課程</a></li>
 				<li><a href="products.php">下載考古題</a></li>
 				<li><a href="upload.php">上傳檔案</a></li>
 				<li><a href="account_info.php">會員資料</a></li>

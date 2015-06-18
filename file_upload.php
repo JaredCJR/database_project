@@ -60,6 +60,10 @@ if (isset($_SESSION["ID"])) {
 				if (!move_uploaded_file($_FILES["file"]["tmp_name"],$uploads_dir.$newName)) {
 					$error = 4 ;
 				}
+       $_SESSION['personal_grade'] = $_SESSION['personal_grade']+100;
+       echo"<script language=\"jscript\"> 
+	alert (\"您增加了100積分，目前為".$_SESSION['personal_grade']."積分\"); 
+	</script> ";
 			}
 		}
 	}

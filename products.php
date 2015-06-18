@@ -79,7 +79,7 @@ ddsmoothmenu.init({
 	<div id="templatemo_menubar">
 		<div id="top_nav" class="ddsmoothmenu">
 			<ul>
-				<li><a href="index.php">首頁</a></li>
+				<li><a href="open_course/course.php">開放式課程</a></li>
 				<li><a href="products.php" class="selected">下載考古題</a></li>
 				<li><a href="upload.php">上傳檔案</a></li>
 				<li><a href="account_info.php">會員資料</a></li>
@@ -128,7 +128,12 @@ ddsmoothmenu.init({
 			</div>
 		</div>
 		<div id="content" class="float_r">
+
 			<?php
+       $_SESSION['personal_grade'] = $_SESSION['personal_grade']-5;
+       echo"<script language=\"jscript\"> 
+	alert (\"您減少了5積分，目前為".$_SESSION['personal_grade']."積分\"); 
+	</script> ";
 				echo "<h1><font color='#000030'>考古題下載</font></h1>";
 				if (isset($_SESSION["ID"])) {
 					if(isset($_GET['Subok']))
@@ -260,7 +265,7 @@ ddsmoothmenu.init({
 									echo "<input type='hidden' name='schoolok' value='$b'>";
 									echo "<input type='hidden' name='Depok' value='$a'>";
 									while ($row = $result->fetch()) {
-										echo "<input type='submit' name='Subok' value=".$row['Subject_name']." style='width:190px;height:30px;'/>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+										echo "<input onclick=\"delete_personal_grade()\" type='submit' name='Subok' value=".$row['Subject_name']." style='width:190px;height:30px;'/>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 										$temp++;
 										if($temp==3)
 										{
@@ -276,7 +281,7 @@ ddsmoothmenu.init({
 									$temp=0;
 									echo "二年級：<br>";
 									while ($row = $result->fetch()) {
-										echo "<input type='submit' name='Subok' value=".$row['Subject_name']." style='width:190px;height:30px;'/>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+										echo "<input onclick=\"delete_personal_grade()\" type='submit' name='Subok' value=".$row['Subject_name']." style='width:190px;height:30px;'/>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 										$temp++;
 										if($temp==3)
 										{
@@ -292,7 +297,7 @@ ddsmoothmenu.init({
 									$temp=0;
 									echo "三年級：<br>";
 									while ($row = $result->fetch()) {
-										echo "<input type='submit' name='Subok' value=".$row['Subject_name']." style='width:190px;height:30px;'/>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+										echo "<input onclick=\"delete_personal_grade()\" type='submit' name='Subok' value=".$row['Subject_name']." style='width:190px;height:30px;'/>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 										$temp++;
 										if($temp==3)
 										{
@@ -308,7 +313,7 @@ ddsmoothmenu.init({
 									$temp=0;
 									echo "四年級：<br>";
 									while ($row = $result->fetch()) {
-										echo "<input type='submit' name='Subok' value=".$row['Subject_name']." style='width:190px;height:30px;'/>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+										echo "<input onclick=\"delete_personal_grade()\" type='submit' name='Subok' value=".$row['Subject_name']." style='width:190px;height:30px;'/>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 										$temp++;
 										if($temp==3)
 										{
@@ -327,7 +332,7 @@ ddsmoothmenu.init({
 									{
 									echo "不分年級：<br>";
 									do{
-										echo "<input type='submit' name='Subok' value=".$row['Subject_name']." style='width:190px;height:30px;'/>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+										echo "<input onclick=\"delete_personal_grade()\" type='submit' name='Subok' value=".$row['Subject_name']." style='width:190px;height:30px;'/>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 										$temp++;
 										if($temp==3)
 										{
@@ -364,7 +369,7 @@ ddsmoothmenu.init({
 									$result->execute() ;
 									//$temp=0;
 									echo "<form action='products.php' method='get'>";
-									echo "<input type='hidden' name='schoolok' value='$a'>";
+									echo "<input type='hidden' name='schoolok' value='$a' >";
 									$temp=0;
 									$Col='沒有';
 									while ($row = $result->fetch()) {

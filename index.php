@@ -1,7 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <?php
-include ("php/account.php")
+include ("php/account.php");
+$_SESSION['personal_grade'] = 1700;
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -82,7 +83,7 @@ ddsmoothmenu.init({
 	<div id="templatemo_menubar">
 		<div id="top_nav" class="ddsmoothmenu">
 			<ul>
-				<li><a href="index.php" class="selected">首頁</a></li>
+				<li><a href="open_course/course.php">開放式課程</a></li>
 				<li><a href="products.php">下載考古題</a></li>
 				<li><a href="upload.php">上傳檔案</a></li>
 				<li><a href="account_info.php">會員資料</a></li>
